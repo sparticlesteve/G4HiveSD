@@ -1,0 +1,10 @@
+/i686-*
+/x86_64-*
+/genConf
+/run
+
+/cmt/cleanup.*sh
+/cmt/setup.*sh
+/cmt/install.*history
+/cmt/version.cmt
+/cmt/Makefile

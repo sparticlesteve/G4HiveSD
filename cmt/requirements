@@ -1,0 +1,13 @@
+package G4HiveSD
+
+use AtlasPolicy         AtlasPolicy-*
+
+use AthenaBaseComps     AthenaBaseComps-*       Control
+use GaudiInterface      GaudiInterface-*        External
+use Geant4              Geant4-*                External
+
+private
+end_private
+
+library G4HiveSD *.cxx components/*.cxx
+apply_pattern component_library
