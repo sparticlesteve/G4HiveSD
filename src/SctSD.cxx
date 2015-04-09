@@ -1,10 +1,15 @@
 // Local includes
 #include "SctSD.h"
 
+// Framework includes
+#include "CxxUtils/make_unique.h"
+
 //-----------------------------------------------------------------------------
 // Constructor
 //-----------------------------------------------------------------------------
-SctSD::SctSD(const std::string& name) : G4VSensitiveDetector(name)
+SctSD::SctSD(const std::string& name)
+  : G4VSensitiveDetector(name),
+    m_hitColl("SCT_Hits")
 {
 }
 
@@ -13,7 +18,8 @@ SctSD::SctSD(const std::string& name) : G4VSensitiveDetector(name)
 //-----------------------------------------------------------------------------
 void SctSD::Initialize(G4HCofThisEvent* /*hce*/)
 {
-  // TODO: prepare hit collection here
+  // Prepare the hit collection. Is the correct usage??
+  m_hitColl = CxxUtils::make_unique<SiHitCollection>();
 }
 
 //-----------------------------------------------------------------------------

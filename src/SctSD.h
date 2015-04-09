@@ -3,6 +3,8 @@
 
 // Framework includes
 #include "G4HiveSD/SensitiveDetectorToolBase.h"
+#include "StoreGate/WriteHandle.h"
+#include "InDetSimEvent/SiHitCollection.h"
 
 // External includes
 #include "G4VSensitiveDetector.hh"
@@ -39,7 +41,8 @@ class SctSD : public G4VSensitiveDetector
 
   private:
 
-    /// TODO: hits collection goes here
+    /// The SCT hits collection
+    SG::WriteHandle<SiHitCollection> m_hitColl;
 
 }; // class SctSD
 

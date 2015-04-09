@@ -7,6 +7,9 @@ use GaudiInterface      GaudiInterface-*        External
 use Geant4              Geant4-*                External
 
 private
+use InDetSimEvent       InDetSimEvent-*         InnerDetector
+use StoreGate           StoreGate-*             Control
+use CxxUtils            CxxUtils-*              Control
 end_private
 
 library G4HiveSD *.cxx components/*.cxx
