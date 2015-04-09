@@ -30,6 +30,8 @@ class ISensitiveDetectorTool : virtual public IAlgTool
       return iid_ISDTool;
     }
 
+  protected:
+
     /// Create a new derived SD for current thread
     virtual G4VSensitiveDetector* makeSD() = 0;
 

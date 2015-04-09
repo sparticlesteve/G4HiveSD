@@ -65,6 +65,8 @@ class SctSDTool : public SensitiveDetectorToolBase
     /// Initialize the tool
     StatusCode initialize() override final;
 
+  protected:
+
     /// Create a sensitive detector object and assign it to volumes
     G4VSensitiveDetector* makeSD() override final;
 
