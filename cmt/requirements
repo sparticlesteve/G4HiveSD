@@ -10,6 +10,7 @@ private
 use InDetSimEvent       InDetSimEvent-*         InnerDetector
 use StoreGate           StoreGate-*             Control
 use CxxUtils            CxxUtils-*              Control
+use MCTruth             MCTruth-*               Simulation/G4Sim
 end_private
 
 library G4HiveSD *.cxx components/*.cxx
