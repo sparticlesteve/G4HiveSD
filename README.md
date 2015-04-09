@@ -7,7 +7,9 @@ Thread safety is ensured by mapping threads to SD objects in a concurrent unorde
 
 Classes:
 
-* [ISensitiveDetectorTool](G4HiveSD/ISensitiveDetectorTool.h)
-* [SensitiveDetectorToolBase](G4HiveSD/SensitiveDetectorToolBase.h)
-* [SctSD](src/SctSD.h)
-* [SctSDTool](src/SctSD.h#L48)
+* [ISensitiveDetectorTool](G4HiveSD/ISensitiveDetectorTool.h) - Tool interface
+  for the SD tools
+* [SensitiveDetectorToolBase](G4HiveSD/SensitiveDetectorToolBase.h) - Base class
+  for the SD tools; holds common functionality for concurrency.
+* [SctSD](src/SctSD.h) - Example G4 SD implementation taken from existing code.
+* [SctSDTool](src/SctSD.h#L48) - SD tool wrapper for the SCT.
