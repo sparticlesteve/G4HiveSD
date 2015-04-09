@@ -244,6 +244,10 @@ SctSDTool::SctSDTool(const std::string& type, const std::string& name,
  : SensitiveDetectorToolBase(type, name, parent)
 {
   declareInterface<ISensitiveDetectorTool>(this);
+  // Default list of volumes
+  m_volumeNames = {"SCT::BRLSensor","SCT::BRLSensorSS","SCT::BRLSensorMS",
+                   "SCT::ECSensor0","SCT::ECSensor1","SCT::ECSensor2",
+                   "SCT::ECSensor3","SCT::ECSensor4","SCT::ECSensor5"};
 }
 
 //-----------------------------------------------------------------------------
