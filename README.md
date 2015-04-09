@@ -6,4 +6,4 @@ Classes:
 * [ISensitiveDetectorTool](G4HiveSD/ISensitiveDetectorTool.h)
 * [SensitiveDetectorToolBase](G4HiveSD/SensitiveDetectorToolBase.h)
 * [SctSD](src/SctSD.h)
-* [SctSDTool](src/SctSD.h)
+* [SctSDTool](src/SctSD.h#L48)
