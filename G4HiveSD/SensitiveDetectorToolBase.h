@@ -10,6 +10,8 @@
 #include "tbb/concurrent_unordered_map.h"
 
 // System includes
+#include <vector>
+#include <string>
 #include <thread>
 
 
@@ -37,6 +39,11 @@ class SensitiveDetectorToolBase : public virtual ISensitiveDetectorTool,
     /// Adds the SD to the map keyed by thread ID.
     /// Returns failure if called more than once in a thread.
     StatusCode initializeSD();
+
+  protected:
+
+    /// List of logical volume names associated with this SD
+    std::vector<std::string> m_volumeNames;
 
   private:
 
