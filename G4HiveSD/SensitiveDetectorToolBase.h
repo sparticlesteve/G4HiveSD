@@ -31,6 +31,8 @@ class SensitiveDetectorToolBase : public virtual ISensitiveDetectorTool,
     SensitiveDetectorToolBase(const std::string& type, const std::string& name,
                               const IInterface* parent);
 
+    /// TODO: destructor to clean up the SD memory
+
     /// Initialize SD for current thread.
     /// Adds the SD to the map keyed by thread ID.
     /// Returns failure if called more than once in a thread.
