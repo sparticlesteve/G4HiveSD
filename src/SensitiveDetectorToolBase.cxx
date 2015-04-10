@@ -17,6 +17,16 @@ SensitiveDetectorToolBase::SensitiveDetectorToolBase(const std::string& type,
 }
 
 //-----------------------------------------------------------------------------
+// Destructor
+//-----------------------------------------------------------------------------
+SensitiveDetectorToolBase::~SensitiveDetectorToolBase()
+{
+  // Delete SDs from the concurrent map
+  for(auto sdPair : m_sdThreadMap)
+    delete sdPair.second;
+}
+
+//-----------------------------------------------------------------------------
 // Initialize SD for current thread
 //-----------------------------------------------------------------------------
 StatusCode SensitiveDetectorToolBase::initializeSD()
@@ -43,8 +53,10 @@ StatusCode SensitiveDetectorToolBase::initializeSD()
 
   // Go through the logical volumes and attach this SD
   G4LogicalVolumeStore * logicalVolumeStore = G4LogicalVolumeStore::GetInstance();
+  ATH_MSG_INFO("Logical volumes: " << logicalVolumeStore->size());
   bool gotOne = false;
   for (auto myvol : m_volumeNames){
+    ATH_MSG_INFO("Trying to attach SD to " << myvol);
     int found = 0;
     for (auto ilv : *logicalVolumeStore){
       if (ilv->GetName() == myvol.data()){
@@ -56,10 +68,10 @@ StatusCode SensitiveDetectorToolBase::initializeSD()
     } // Loop over all the volumes in the geometry
     // Give notice if we have missed a volume in here
     if (found == 0){
-      ATH_MSG_WARNING( "Volume " << myvol << " not found in G4LogicalVolumeStore." );
+      ATH_MSG_WARNING("Volume " << myvol << " not found in G4LogicalVolumeStore.");
     } else {
-      ATH_MSG_VERBOSE( found << " copies of LV " << myvol << " found; SD " <<
-                       name() << " assigned." );
+      ATH_MSG_VERBOSE(found << " copies of LV " << myvol << " found; SD " <<
+                      name() << " assigned.");
     }
   } // Loop over my volumes
 
