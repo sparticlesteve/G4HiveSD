@@ -13,3 +13,7 @@ Classes:
   for the SD tools; holds common functionality for concurrency.
 * [SctSD](src/SctSD.h) - Example G4 SD implementation taken from existing code.
 * [SctSDTool](src/SctSD.h#L48) - SD tool wrapper for the SCT.
+* [ISensitiveDetectorSvc](G4HiveSD/ISensitiveDetectorSvc.h) - Interface for the
+  top-level SD service.
+* [SensitiveDetectorSvc](src/SensitiveDetectorSvc.h) - Top-level SD service
+  that manages the SD tools and delegates creation of the G4 SD objects.
