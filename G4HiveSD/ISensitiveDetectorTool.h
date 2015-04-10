@@ -30,9 +30,14 @@ class ISensitiveDetectorTool : virtual public IAlgTool
       return iid_ISDTool;
     }
 
+    /// Initialize the SD for the current thread.
+    /// This method is implemented in the base class.
+    virtual StatusCode initializeSD() = 0;
+
   protected:
 
-    /// Create a new derived SD for current thread
+    /// Create a new derived SD for current thread.
+    /// This method must be implemented by the concrete SD tool.
     virtual G4VSensitiveDetector* makeSD() = 0;
 
 }; // class ISensitiveDetectorTool

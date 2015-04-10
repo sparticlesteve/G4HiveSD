@@ -38,7 +38,7 @@ class SensitiveDetectorToolBase : public virtual ISensitiveDetectorTool,
     /// Initialize SD for current thread.
     /// Adds the SD to the map keyed by thread ID.
     /// Returns failure if called more than once in a thread.
-    StatusCode initializeSD();
+    StatusCode initializeSD() override final;
 
   protected:
 
