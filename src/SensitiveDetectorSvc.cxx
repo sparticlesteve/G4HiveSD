@@ -29,6 +29,7 @@ StatusCode SensitiveDetectorSvc::initialize()
 StatusCode SensitiveDetectorSvc::makeSDs()
 {
   for(auto tool : m_sdTools){
+    ATH_MSG_DEBUG("Invoking SD creation for " << tool->name());
     ATH_CHECK( tool->initializeSD() );
   }
   return StatusCode::SUCCESS;
