@@ -42,10 +42,15 @@ StatusCode SensitiveDetectorToolBase::initializeSD()
   }
 
   // Create a new SD and add it to the map
-  // TODO: memory management of the SD
+  // TODO: C++11 memory management of the SD
   ATH_MSG_DEBUG("Creating and registering SD for thread " << id);
   G4VSensitiveDetector* sd = makeSD();
   m_sdThreadMap.insert( std::make_pair(id, sd) );
+
+  // Dump the SD map
+  ATH_MSG_DEBUG("Current SD map contents:");
+  for(auto sdPair : m_sdThreadMap)
+    ATH_MSG_DEBUG("ID: " << sdPair.first << " SD: " << sdPair.second);
 
   // Add the SD to the SD manager
   G4SDManager* sdManager = G4SDManager::GetSDMpointer();
